@@ -10,4 +10,5 @@ import java.util.List;
 public interface ITestCaseRepository extends CrudRepository<TestCase, Long> {
 
     List<TestCase> findTestCaseByLastUpdateGreaterThanEqual(Date lastUpdated);
+
 }

@@ -21,12 +21,16 @@ public class TestCase {
 
     @Column(length = 256)
     private String description;
+
     @Column
     private boolean tested;
+
     @Column
     private boolean passed;
+
     @Column
     private int number_of_tries;
+
     @Column(name = "last_update")
     private Date lastUpdate;
 

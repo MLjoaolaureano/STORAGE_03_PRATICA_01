@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.model.TestCase;
 import com.example.demo.service.TestCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +55,7 @@ public class TestCaseController {
     }
 
     @GetMapping("/testing")
-    ResponseEntity<List<TestCase>> getByLastUpdated(@RequestParam(name = "last_update", required = true) Date last_update) {
+    ResponseEntity<List<TestCase>> getByLastUpdated(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date last_update) {
         List<TestCase> testCaseListResponse = testCaseService.findByLastUpdatedAfter(last_update);
 
         return (new ResponseEntity(testCaseListResponse, HttpStatus.FOUND));
